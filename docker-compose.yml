@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  node:
+    container_name: torelog_node
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 8080:8080
+    command: "vue ui --host=0.0.0.0 --port=8000"
+    restart: always
+    tty: true
+    volumes:
+      - ".:/app"
+    environment:
+      TZ: Asia/Tokyo
